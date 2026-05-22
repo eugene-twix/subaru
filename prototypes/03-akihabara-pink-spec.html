@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subaru Impreza | Night Spec</title>
+  <meta name="description" content="Редакционный концепт Subaru Impreza в стилистике JDM-журнала и аркадной графики: моторы, стейджи, свет, обвес.">
+  <meta property="og:title" content="Subaru Impreza | Night Spec">
+  <meta property="og:description" content="Редакционный концепт Subaru Impreza в стилистике JDM-журнала и аркадной графики: моторы, стейджи, свет, обвес.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
+  <style>
+    :root {
+      --pink: #FF4FD8;
+      --coral: #FF6B8A;
+      --blue: #4DDCFF;
+      --violet: #2B123F;
+      --off-white: #FFF7F2;
+      --graphite: #18151E;
+      --acid: #C9FF3D;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--violet);
+    }
+
+    body {
+      margin: 0;
+      color: var(--off-white);
+      background:
+        radial-gradient(circle at 14% 10%, rgba(255, 79, 216, .5), transparent 30rem),
+        radial-gradient(circle at 86% 18%, rgba(77, 220, 255, .26), transparent 27rem),
+        linear-gradient(180deg, var(--violet), var(--graphite) 52%, var(--violet));
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .nav {
+      position: fixed;
+      z-index: 30;
+      inset: 0 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 18px;
+      pointer-events: none;
+    }
+
+    .nav__inner {
+      display: flex;
+      gap: clamp(10px, 2vw, 22px);
+      padding: 8px;
+      background: rgba(24, 21, 30, .78);
+      border: 2px solid var(--pink);
+      box-shadow: 8px 8px 0 rgba(255, 79, 216, .22);
+      backdrop-filter: blur(16px);
+      pointer-events: auto;
+    }
+
+    .nav a {
+      display: inline-flex;
+      min-height: 34px;
+      align-items: center;
+      padding: 0 11px;
+      background: rgba(255, 79, 216, .09);
+      color: var(--off-white);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+      white-space: nowrap;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: var(--pink);
+      color: var(--violet);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    .manifesto {
+      font-family: "Russo One", system-ui, sans-serif;
+      font-weight: 400;
+      line-height: .96;
+      letter-spacing: 0;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(340px, 1.1fr);
+      gap: clamp(24px, 4vw, 58px);
+      align-items: center;
+      padding: 118px clamp(18px, 5vw, 72px) 68px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(135deg, rgba(255, 79, 216, .38), transparent 42%),
+        linear-gradient(45deg, rgba(255, 247, 242, .06) 25%, transparent 25% 50%, rgba(255, 247, 242, .06) 50% 75%, transparent 75%) 0 0 / 34px 34px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 4vw;
+      top: 12vh;
+      width: min(44vw, 620px);
+      height: min(44vw, 620px);
+      z-index: -1;
+      background: var(--pink);
+      transform: rotate(-8deg);
+      box-shadow: 18px 18px 0 var(--blue), -18px -18px 0 rgba(201, 255, 61, .76);
+    }
+
+    .hero__copy {
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero__stamps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .stamp {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 10px;
+      background: var(--off-white);
+      color: var(--violet);
+      border: 2px solid var(--graphite);
+      box-shadow: 4px 4px 0 var(--pink);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      color: var(--pink);
+      font-size: clamp(50px, 7vw, 96px);
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 rgba(77, 220, 255, .9);
+    }
+
+    .hero__subtitle {
+      margin: 18px 0 0;
+      color: var(--acid);
+      font-family: "Russo One", system-ui, sans-serif;
+      font-size: clamp(24px, 2.4vw, 34px);
+      line-height: 1.08;
+      text-transform: uppercase;
+    }
+
+    .hero__line {
+      max-width: 590px;
+      margin: 20px 0 0;
+      color: rgba(255, 247, 242, .84);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 14px;
+    }
+
+    .hero__image {
+      position: relative;
+      z-index: 2;
+      min-height: min(62vw, 690px);
+      border: 4px solid var(--off-white);
+      box-shadow: 18px 18px 0 rgba(255, 79, 216, .82);
+      transform: rotate(1.5deg);
+      overflow: hidden;
+      background: var(--pink);
+    }
+
+    .hero__image img {
+      width: 100%;
+      height: 100%;
+      min-height: min(62vw, 690px);
+      object-fit: cover;
+      filter: saturate(1.55) hue-rotate(312deg) contrast(1.1) brightness(.98);
+      mix-blend-mode: luminosity;
+      opacity: .92;
+    }
+
+    .hero__image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 79, 216, .5), rgba(77, 220, 255, .18) 48%, rgba(255, 107, 138, .42)),
+        repeating-linear-gradient(0deg, rgba(255, 247, 242, .08) 0 2px, transparent 2px 7px);
+      mix-blend-mode: screen;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(92px, 10vw, 146px) clamp(18px, 5vw, 72px);
+    }
+
+    .section__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .unlock {
+      display: inline-flex;
+      position: sticky;
+      top: 84px;
+      z-index: 8;
+      margin-bottom: 28px;
+      padding: 8px 12px;
+      background: var(--graphite);
+      border: 2px solid var(--pink);
+      color: var(--pink);
+      box-shadow: 5px 5px 0 rgba(255, 79, 216, .28);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .is-visible .unlock {
+      animation: flash .72s steps(2, end);
+    }
+
+    @keyframes flash {
+      0%, 22%, 45% { background: var(--pink); color: var(--violet); box-shadow: 0 0 34px var(--pink); }
+      23%, 44%, 100% { background: var(--graphite); color: var(--pink); }
+    }
+
+    h2 {
+      max-width: 900px;
+      margin: 0 0 24px;
+      color: var(--off-white);
+      font-size: clamp(38px, 5.2vw, 78px);
+      text-transform: uppercase;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 247, 242, .78);
+      font-size: clamp(18px, 2vw, 23px);
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(300px, 1fr);
+      gap: clamp(26px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .story__copy {
+      padding: clamp(24px, 4vw, 44px);
+      background: rgba(255, 79, 216, .12);
+      border: 2px solid rgba(255, 79, 216, .52);
+      box-shadow: 12px 12px 0 rgba(77, 220, 255, .16);
+    }
+
+    .story__copy p {
+      margin: 0 0 18px;
+      color: rgba(255, 247, 242, .82);
+      font-size: 18px;
+    }
+
+    .story__image {
+      position: relative;
+      min-height: 580px;
+      overflow: hidden;
+      border: 4px solid var(--blue);
+      box-shadow: -16px 16px 0 var(--pink);
+      transform: rotate(-1.2deg);
+    }
+
+    .story__image img {
+      width: 100%;
+      height: 100%;
+      min-height: 580px;
+      object-fit: cover;
+      filter: saturate(1.6) hue-rotate(288deg) contrast(1.08);
+    }
+
+    .story__image::after {
+      content: "ピンク";
+      position: absolute;
+      right: 18px;
+      bottom: 12px;
+      color: rgba(255, 247, 242, .28);
+      font-family: "Russo One", system-ui, sans-serif;
+      font-size: clamp(62px, 9vw, 126px);
+      line-height: .8;
+    }
+
+    .engine-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .engine-card {
+      position: relative;
+      min-height: 352px;
+      padding: 22px;
+      background: var(--off-white);
+      color: var(--graphite);
+      border: 4px solid var(--pink);
+      box-shadow: 10px 10px 0 rgba(255, 79, 216, .3);
+      transition: transform .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+    }
+
+    .engine-card:hover {
+      transform: rotate(-1deg) translateY(-6px);
+      box-shadow: 15px 15px 0 var(--pink);
+    }
+
+    .engine-card::after {
+      content: "改";
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      color: rgba(255, 79, 216, .28);
+      font-family: "Russo One", system-ui, sans-serif;
+      font-size: 78px;
+      line-height: 1;
+    }
+
+    .engine-card__code {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 18px;
+      color: var(--pink);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .engine-card__power {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 12px;
+      font-family: "Russo One", system-ui, sans-serif;
+      font-size: 33px;
+      line-height: 1;
+    }
+
+    .engine-card__spec {
+      position: relative;
+      z-index: 1;
+      min-height: 76px;
+      margin: 0 0 20px;
+      color: rgba(24, 21, 30, .72);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .engine-card__copy {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .arcade {
+      display: grid;
+      gap: 20px;
+      margin-top: 42px;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: 140px minmax(0, 1fr) 240px;
+      gap: 20px;
+      align-items: center;
+      padding: 20px;
+      background: rgba(255, 247, 242, .08);
+      border: 2px solid rgba(77, 220, 255, .5);
+    }
+
+    .stage h3 {
+      margin: 0;
+      color: var(--acid);
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+
+    .stage__bar {
+      height: 22px;
+      background:
+        linear-gradient(90deg, rgba(255, 247, 242, .12), rgba(255, 247, 242, .04));
+      border: 2px solid rgba(255, 247, 242, .28);
+      overflow: hidden;
+    }
+
+    .stage__bar span {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      background: linear-gradient(90deg, var(--pink), var(--coral), var(--acid), var(--pink));
+      background-size: 220% 100%;
+      animation: power 1.8s linear infinite;
+      box-shadow: 0 0 26px rgba(255, 79, 216, .7);
+    }
+
+    @keyframes power {
+      to { background-position: 220% 0; }
+    }
+
+    .stage__meta strong {
+      display: block;
+      color: var(--pink);
+      font-family: "Russo One", system-ui, sans-serif;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stage__meta span {
+      display: block;
+      margin-top: 8px;
+      color: rgba(255, 247, 242, .75);
+      font-size: 14px;
+    }
+
+    .neon {
+      position: relative;
+      min-height: 780px;
+      display: grid;
+      align-items: end;
+      background:
+        linear-gradient(180deg, rgba(43, 18, 63, .28), var(--graphite) 88%),
+        url("https://images.pexels.com/photos/8122795/pexels-photo-8122795.jpeg?auto=compress&cs=tinysrgb&w=1920") center / cover;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .neon::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(45deg, rgba(255, 79, 216, .18) 25%, transparent 25% 50%, rgba(77, 220, 255, .14) 50% 75%, transparent 75%) 0 0 / 28px 28px,
+        radial-gradient(ellipse at 46% 78%, rgba(255, 79, 216, .78), transparent 22%),
+        linear-gradient(90deg, rgba(43, 18, 63, .9), rgba(43, 18, 63, .28), rgba(24, 21, 30, .94));
+      mix-blend-mode: screen;
+    }
+
+    .light-strip {
+      position: absolute;
+      left: -10%;
+      right: -10%;
+      height: 8px;
+      background: var(--pink);
+      box-shadow: 0 0 34px var(--pink), 0 0 80px var(--blue);
+      transform: rotate(-3deg);
+      animation: strip 2.4s ease-in-out infinite alternate;
+    }
+
+    .light-strip:nth-child(1) { top: 20%; }
+    .light-strip:nth-child(2) { top: 64%; animation-delay: .45s; }
+
+    @keyframes strip {
+      from { opacity: .22; transform: rotate(-3deg) translateX(-28px); }
+      to { opacity: .78; transform: rotate(-3deg) translateX(28px); }
+    }
+
+    .neon__panel {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      padding: clamp(24px, 4vw, 44px);
+      background: rgba(24, 21, 30, .82);
+      border: 3px solid var(--pink);
+      box-shadow: 12px 12px 0 rgba(77, 220, 255, .38);
+    }
+
+    .neon__panel p {
+      margin: 0 0 16px;
+      color: rgba(255, 247, 242, .82);
+      font-size: 18px;
+    }
+
+    .warning {
+      color: var(--acid);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .stickers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 44px;
+    }
+
+    .sticker {
+      position: relative;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 18px;
+      background: var(--off-white);
+      color: var(--graphite);
+      border: 3px solid var(--graphite);
+      box-shadow: 8px 8px 0 rgba(255, 79, 216, .44);
+      transition: transform .25s ease, box-shadow .25s ease;
+      overflow: hidden;
+    }
+
+    .sticker:hover {
+      transform: scale(1.035) rotate(-1.5deg);
+      box-shadow: 14px 14px 0 var(--pink);
+      z-index: 2;
+    }
+
+    .sticker:nth-child(3n + 2) {
+      background: var(--pink);
+      color: var(--violet);
+    }
+
+    .sticker:nth-child(3n) {
+      background: var(--acid);
+      color: var(--violet);
+    }
+
+    .sticker img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .28;
+      filter: saturate(1.8) hue-rotate(292deg) contrast(1.08);
+      mix-blend-mode: multiply;
+    }
+
+    .sticker h3,
+    .sticker p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+
+    .sticker h3 {
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .sticker p {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .closing {
+      min-height: 82svh;
+      display: grid;
+      align-items: center;
+      background:
+        linear-gradient(45deg, rgba(255, 247, 242, .04) 25%, transparent 25% 50%, rgba(255, 247, 242, .04) 50% 75%, transparent 75%) 0 0 / 38px 38px,
+        radial-gradient(circle at 78% 50%, rgba(255, 79, 216, .12), transparent 26rem),
+        var(--violet);
+    }
+
+    .manifesto {
+      max-width: 900px;
+      margin: 0;
+      color: var(--off-white);
+      font-size: clamp(42px, 7vw, 94px);
+      text-transform: uppercase;
+    }
+
+    .manifesto span {
+      color: var(--pink);
+      text-shadow: 5px 5px 0 rgba(77, 220, 255, .76);
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .hero::after {
+        width: 70vw;
+        height: 48vw;
+        top: 44%;
+      }
+
+      .engine-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stage {
+        grid-template-columns: 110px 1fr;
+      }
+
+      .stage__meta {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 10px;
+      }
+
+      .nav__inner {
+        gap: 8px;
+      }
+
+      .nav a {
+        min-height: 30px;
+        padding: 0 8px;
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 94px 18px 58px;
+      }
+
+      .hero__image,
+      .hero__image img {
+        min-height: 360px;
+      }
+
+      .hero::after {
+        right: 12px;
+        top: 52%;
+        width: 84vw;
+        height: 60vw;
+      }
+
+      .story__image,
+      .story__image img {
+        min-height: 360px;
+      }
+
+      .engine-grid,
+      .stickers {
+        grid-template-columns: 1fr;
+      }
+
+      .stage {
+        grid-template-columns: 1fr;
+      }
+
+      .neon {
+        min-height: 720px;
+      }
+
+      .unlock {
+        position: relative;
+        top: auto;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Основная навигация">
+    <div class="nav__inner">
+      <a href="#history">История</a>
+      <a href="#engine">Двигатель</a>
+      <a href="#stages">Стейдж</a>
+      <a href="#light">Свет</a>
+      <a href="#look">Облик</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero__copy">
+      <div class="hero__stamps" aria-label="Метки концепта">
+        <span class="stamp">СПЕК 01</span>
+        <span class="stamp">СТРИТ-РЕЖИМ</span>
+        <span class="stamp">ОТКРЫТО</span>
+      </div>
+      <h1>IMPREZA · NIGHT SPEC</h1>
+      <p class="hero__subtitle">Холодный пуск в 4 утра. К пяти уже за городом.</p>
+      <p class="hero__line">Мотор, свет, обвес, винил — что туда ставят и зачем. Без каталога и заказов.</p>
+    </div>
+    <figure class="hero__image">
+      <img src="https://images.pexels.com/photos/17205547/pexels-photo-17205547.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Фиолетовая Subaru Impreza с бирюзовыми дисками в насыщенной розовой обработке">
+    </figure>
+  </header>
+
+  <main>
+    <section id="history" class="section reveal">
+      <div class="section__inner">
+        <span class="unlock">История //// открыта</span>
+        <div class="story">
+          <div class="story__copy">
+            <h2>Откуда она</h2>
+            <p class="lead">GD, GG, GR — три поколения одной идеи. Симметричный полный привод, оппозитная четвёрка, короткая база. Раллийная родословная не как маркетинг, а как геометрия шасси.</p>
+            <p>Subaru WRC 1993–2008, Колин Маккрей и Ричард Бёрнс. То, как машина ведёт себя в шпильке, родом оттуда — а не из ателье.</p>
+            <p>Платформа держит серьёзные цифры. Дальше — вопрос бюджета и того, как часто ты готов к ней возвращаться с гаечным ключом.</p>
+          </div>
+          <figure class="story__image">
+            <img src="https://images.pexels.com/photos/16728009/pexels-photo-16728009.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Черная Subaru Impreza в яркой журнальной обработке">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="engine" class="section reveal">
+      <div class="section__inner">
+        <span class="unlock">Двигатель //// открыт</span>
+        <h2>Какие моторы свапают</h2>
+        <p class="lead">EJ-семейство встаёт в GD/GG без переделок шасси. На GR-кузове сложнее — два CAN-bus и обвязка модулей. Ниже — четыре варианта. Три по линии Subaru, один из соседней вселенной.</p>
+        <div class="engine-grid">
+          <article class="engine-card">
+            <h3 class="engine-card__code">EJ257</h3>
+            <p class="engine-card__power">~305 л.с.</p>
+            <p class="engine-card__spec">STI 2004+ · forged internals · dual AVCS · larger intercooler</p>
+            <p class="engine-card__copy">Сток STI. База большинства серьёзных проектов 300+ л.с. На GD/GG встаёт без переделок шасси.</p>
+          </article>
+          <article class="engine-card">
+            <h3 class="engine-card__code">EJ255</h3>
+            <p class="engine-card__power">~227 л.с.</p>
+            <p class="engine-card__spec">WRX 2006+ · closed-deck блок · VF39 турбина</p>
+            <p class="engine-card__copy">Самый живучий из EJ под наддувом. Долго терпит ошибки тюнера и плохой 95-й.</p>
+          </article>
+          <article class="engine-card">
+            <h3 class="engine-card__code">FA20DIT</h3>
+            <p class="engine-card__power">~268 л.с.</p>
+            <p class="engine-card__spec">WRX 2015+ · direct injection · twin-scroll</p>
+            <p class="engine-card__copy">Прямой впрыск, twin-scroll, резкий низ. Сложно прописать в старый кузов из-за электрики.</p>
+          </article>
+          <article class="engine-card">
+            <h3 class="engine-card__code">2JZ-GTE</h3>
+            <p class="engine-card__power">~280 л.с.</p>
+            <p class="engine-card__spec">Toyota Supra · сток · до 1000+ при сборке</p>
+            <p class="engine-card__copy">Свап против логики. Длинный, тяжёлый, не дружит с симметричным полным. Делают единицы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stages" class="section reveal">
+      <div class="section__inner">
+        <span class="unlock">Стейдж //// открыт</span>
+        <h2>Полоса мощности</h2>
+        <p class="lead">Стейдж — это договорённость между тюнером, кошельком и нервной системой владельца. Каждый следующий требует больше железа, лучшего топлива и более серьёзного отношения к температуре масла.</p>
+        <div class="arcade">
+          <article class="stage">
+            <h3>Stage 1</h3>
+            <div class="stage__bar" aria-hidden="true"><span style="--value: 54%"></span></div>
+            <div class="stage__meta"><strong>260–300 л.с.</strong><span>ECU remap, downpipe, прямой впуск. Едет по тому же маршруту, но быстрее.</span></div>
+          </article>
+          <article class="stage">
+            <h3>Stage 2</h3>
+            <div class="stage__bar" aria-hidden="true"><span style="--value: 76%"></span></div>
+            <div class="stage__meta"><strong>320–380 л.с.</strong><span>Sports cat, 3-port BCS, бо́льший intercooler. Появляется лаг, перестаёт прощать плохой 95-й.</span></div>
+          </article>
+          <article class="stage">
+            <h3>Stage 3+</h3>
+            <div class="stage__bar" aria-hidden="true"><span style="--value: 100%"></span></div>
+            <div class="stage__meta"><strong>400–500+ л.с.</strong><span>Новая турбина, кованая поршневая, шатуны, форсунки. Дальше — вопрос денег и готовности чинить её каждые полгода.</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="light" class="section neon reveal">
+      <div class="light-strip" aria-hidden="true"></div>
+      <div class="light-strip" aria-hidden="true"></div>
+      <div class="section__inner">
+        <div class="neon__panel">
+          <span class="unlock">Свет //// открыт</span>
+          <h2>Подсветка кузова и салона</h2>
+          <p>LED-полосы по днищу, RGB-ленты в нишах салона, отдельный свет в моторном отсеке. Подсветка номера, дисков, порогов. На стоянке выглядит как технический объект; в движении почти всё это запрещено.</p>
+          <p class="warning">ПДД РФ цветной underglow на дорогах общего пользования не разрешают. Всё это для трека, dyno-дня и фото-сессии в гараже.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="look" class="section reveal">
+      <div class="section__inner">
+        <span class="unlock">Облик //// открыт</span>
+        <h2>Стикер-лист кузова</h2>
+        <p class="lead">Девять ячеек, одна машина. Покраска, винил, оптика, диски — каждое решение выбирает позицию между сток-разумным и тоталитарной графикой.</p>
+        <div class="stickers">
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/17205547/pexels-photo-17205547.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Фиолетовая Subaru Impreza с яркими колесами">
+            <h3>Жемчуг</h3>
+            <p>Заводской перламутр с холодным переливом, поверх — тонкий слой кэнди.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/18501353/pexels-photo-18501353.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Оранжевый WRX сзади в насыщенной обработке">
+            <h3>Вишня</h3>
+            <p>Чёрная вишня — black cherry metallic, глубокий блик в темноте.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.unsplash.com/photo-1620961750247-71ad9309f348?w=1920&q=80&auto=format&fit=crop&fm=jpg" alt="Яркий спортивный автомобиль с раллийным настроением">
+            <h3>Kanji</h3>
+            <p>Кэнди-метталлик с типографикой по борту, ручная отрисовка.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.unsplash.com/photo-1611609054272-1c25b307a218?w=1920&q=80&auto=format&fit=crop&fm=jpg" alt="Красный автомобиль на дороге">
+            <h3>Brush</h3>
+            <p>Матовый белый, brushstroke-графика по бортам, мазки от руки.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/8122795/pexels-photo-8122795.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Синий спортивный седан в движении">
+            <h3>Sakura</h3>
+            <p>Sakura-стикер пакет и abstract wrap. Снимается без следа.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/25637468/pexels-photo-25637468.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Спортивный автомобиль в городском гараже">
+            <h3>Carbon</h3>
+            <p>Carbon hood, широкие арки, лёгкий передок — меньше веса над колёсами.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/36417240/pexels-photo-36417240.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Красный спортивный автомобиль в гараже">
+            <h3>Ducktail</h3>
+            <p>Ducktail spoiler, lip kit, диффузор. WRC-форма без раллийных номеров.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/16728009/pexels-photo-16728009.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Черная Subaru Impreza, профиль и оптика">
+            <h3>TE37</h3>
+            <p>Volk TE37, Work Meister, Enkei RPF1. Лёгкая ковка экономит больше, чем кажется.</p>
+          </article>
+          <article class="sticker">
+            <img src="https://images.pexels.com/photos/33611535/pexels-photo-33611535.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Subaru с ярким светом фар">
+            <h3>DRL</h3>
+            <p>Smoked headlights, LED DRL, узкий холодный контур. Оптика читается раньше остального.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing reveal">
+      <div class="section__inner">
+        <p class="manifesto">Можно ездить как есть.<br>Можно собрать <span>пятьсот лошадей</span><br>и уехать туда, где утром нет встречки.<br>Машина не задаст ни одного вопроса.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.reveal').forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subaru Impreza — четыре направления</title>
+  <meta name="description" content="Четыре дизайнерских прототипа одностраничного лендинга Subaru Impreza: ночной, ритуальный, журнально-аркадный и горный.">
+  <meta property="og:title" content="Subaru Impreza — четыре направления">
+  <meta property="og:description" content="Четыре дизайнерских прототипа одностраничного лендинга Subaru Impreza: ночной, ритуальный, журнально-аркадный и горный.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&family=Manrope:wght@400;600&display=swap">
+  <style>
+    :root {
+      --bg: #07070B;
+      --text: #F7F2F6;
+      --muted: #B7ADBA;
+      --line: rgba(255, 255, 255, .14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+    }
+
+    body {
+      min-height: 100svh;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255, 45, 170, .18), transparent 28rem),
+        radial-gradient(circle at 80% 12%, rgba(245, 139, 182, .16), transparent 28rem),
+        linear-gradient(180deg, #07070b, #111018);
+      font-family: "Manrope", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .page {
+      width: min(1180px, calc(100% - 36px));
+      min-height: 100svh;
+      display: grid;
+      align-content: center;
+      margin: 0 auto;
+      padding: 70px 0 36px;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin: 0;
+      font-family: "Unbounded", system-ui, sans-serif;
+      font-size: clamp(38px, 6vw, 78px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      max-width: 620px;
+      margin: 22px 0 44px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      --accent: #FF2DAA;
+      min-height: 520px;
+      display: grid;
+      grid-template-rows: 230px 1fr;
+      background: rgba(255, 255, 255, .045);
+      border: 1px solid color-mix(in srgb, var(--accent), transparent 55%);
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .26);
+      transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 34px 90px rgba(0, 0, 0, .38), 0 0 42px color-mix(in srgb, var(--accent), transparent 65%);
+      outline: none;
+    }
+
+    .card__media {
+      position: relative;
+      overflow: hidden;
+      background: var(--accent);
+    }
+
+    .card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.35) hue-rotate(320deg) brightness(.82);
+      opacity: .82;
+      transition: transform .45s ease;
+      mix-blend-mode: screen;
+    }
+
+    .card:nth-child(2) .card__media img {
+      filter: grayscale(1) brightness(1.05);
+      mix-blend-mode: luminosity;
+      opacity: .78;
+    }
+
+    .card:nth-child(3) .card__media img {
+      filter: saturate(1.7) hue-rotate(305deg) contrast(1.08);
+      mix-blend-mode: luminosity;
+      opacity: .9;
+    }
+
+    .card:nth-child(4) .card__media img {
+      filter: saturate(.85) contrast(1.08) brightness(.82);
+      mix-blend-mode: luminosity;
+      opacity: .9;
+    }
+
+    .card:hover .card__media img {
+      transform: scale(1.06);
+    }
+
+    .card__media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent, rgba(7, 7, 11, .76));
+    }
+
+    .card__body {
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+    }
+
+    .card__label {
+      width: max-content;
+      margin: 0 0 20px;
+      padding: 6px 9px;
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent), transparent 35%);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--text);
+      font-family: "Unbounded", system-ui, sans-serif;
+      font-size: clamp(24px, 2.2vw, 34px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    .card__open {
+      margin-top: auto;
+      padding-top: 28px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding-top: 22px;
+      color: rgba(247, 242, 246, .62);
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1120px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .card {
+        min-height: 430px;
+        grid-template-rows: 220px 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        width: min(100% - 28px, 1180px);
+        padding-top: 42px;
+      }
+
+      .card__body {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Subaru Impreza — четыре направления</h1>
+    <p class="intro">Четыре самостоятельных прототипа одной редакционной страницы: ночной неон, тихий ритуал, насыщенная журнальная графика и горный перевал.</p>
+    <section class="cards" aria-label="Список прототипов">
+      <a class="card" href="01-shinjuku-0300.html" style="--accent: #FF2DAA">
+        <figure class="card__media">
+          <img src="https://images.pexels.com/photos/17111134/pexels-photo-17111134.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Белая Subaru WRX STI с LED-подсветкой ночью">
+        </figure>
+        <div class="card__body">
+          <p class="card__label">Концепт 01</p>
+          <h2>Синдзюку 03:00</h2>
+          <p>Ночной Tokyo-редакториал: мокрый асфальт, холодный cyan, стеклянные панели и подсветка под порогами.</p>
+          <span class="card__open">Открыть прототип</span>
+        </div>
+      </a>
+      <a class="card" href="02-petal-and-steel.html" style="--accent: #F58BB6">
+        <figure class="card__media">
+          <img src="https://images.pexels.com/photos/7549106/pexels-photo-7549106.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Серая Subaru Impreza WRX в светлой обработке">
+        </figure>
+        <div class="card__body">
+          <p class="card__label">Концепт 02</p>
+          <h2>Лепесток и Сталь</h2>
+          <p>Wabi-sabi премиум: бумажный фон, тонкая серифная типографика и спокойная ритуальная прогрессия.</p>
+          <span class="card__open">Открыть прототип</span>
+        </div>
+      </a>
+      <a class="card" href="03-akihabara-pink-spec.html" style="--accent: #FF4FD8">
+        <figure class="card__media">
+          <img src="https://images.pexels.com/photos/17205547/pexels-photo-17205547.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Фиолетовая Subaru Impreza с яркими колесами">
+        </figure>
+        <div class="card__body">
+          <p class="card__label">Концепт 03</p>
+          <h2>Акихабара Pink Spec</h2>
+          <p>Дисциплинированный визуальный шум: itasha, JDM-журнал, аркадные полосы мощности и стикер-лист кузова.</p>
+          <span class="card__open">Открыть прототип</span>
+        </div>
+      </a>
+      <a class="card" href="04-toge-night.html" style="--accent: #FF5E8E">
+        <figure class="card__media">
+          <img src="https://images.pexels.com/photos/33651652/pexels-photo-33651652.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="Горная дорога у Инавасиро">
+        </figure>
+        <div class="card__body">
+          <p class="card__label">Концепт 04</p>
+          <h2>Тогэ: ночной перевал</h2>
+          <p>Горный серпантин, влажный асфальт, туман между кедрами и Impreza до восхода.</p>
+          <span class="card__open">Открыть прототип</span>
+        </div>
+      </a>
+    </section>
+    <footer>Прототипы дизайнерских концепций. Финальный вариант — один из четырёх.</footer>
+  </main>
+</body>
+</html>
